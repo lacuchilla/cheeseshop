@@ -1,9 +1,32 @@
-{% if latest_question_list %}
-    <ul>
-    {% for question in latest_question_list %}
-        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No polls are available.</p>
-{% endif %}
+{% extends 'orders/base.html' %}
+
+{% block content %}
+
+	<h2>Available cheeses</h2>
+	{% if item_list %}
+    <table>
+        <thead>
+        	<tr>
+            	<th>Name</th>
+            	<th>Cost</th>
+            	<th>Unit</th>
+            	<th>How many do you need?</th>
+         	</tr>
+
+	      	{% for item in item_list %}
+	      	<tr>
+	        	<td>{{ item.name }}</td>
+	        	<td>{{ item.cost }}</td>
+	        	<td>{{ item.units }}</td>
+	        	<td>{{ ItemForm }}</td>
+	      	</tr>
+	    	{% endfor %}
+        </thead>
+     </table>
+	{% else %}
+	    <p>No cheeses are available.</p>
+	{% endif %}
+
+
+
+{% endblock %}
