@@ -1,11 +1,14 @@
-<html>
-    <head>
-        <title>{% block head_title %}Welcome to Cheese Shop!{% endblock %}</title>
-    </head>
-    <body>
-        <h1>{% block title %}Please place your order below{% endblock %}</h1>
-        {% block content %}
+{% extends 'orders/bootstrap.html' %}
 
-        {% endblock %}
-    </body>
-</html>
+{% load bootstrap3 %}
+
+{% block bootstrap3_content %}
+    <div class="container">
+        <h1>{% block title %}Welcome to Cheese Shop!{% endblock %}</h1>
+
+        {% bootstrap_messages %}
+
+        {% block content %}Please place your order below{% endblock %}
+    </div>
+
+{% endblock %}
