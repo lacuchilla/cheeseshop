@@ -1,11 +1,11 @@
 from django.shortcuts import render
 from django.views import generic
-from django.views.generic.edit import FormMixin
 
 # Create your views here.
 
 from .models import Item
 from .forms import ContactForm
+
 
 class IndexView(generic.FormView):
     template_name = 'orders/index.html'
@@ -20,3 +20,4 @@ class IndexView(generic.FormView):
 class FormInlineView(generic.FormView):
     template_name = 'orders/form_inline.html'
     form_class = ContactForm
+
